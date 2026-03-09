@@ -1,0 +1,14 @@
+type Props = {
+	width?: number;
+	height?: number;
+};
+
+const ArrowLeft = ({ width = 24, height = 24 }: Props) => {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height={height} width={width} viewBox="0 0 24 24">
+			<path d="M11.79 6.29 6.09 12l5.7 5.71 1.42-1.42L9.91 13H18v-2H9.91l3.3-3.29z" />
+		</svg>
+	);
+};
+
+export default ArrowLeft;
