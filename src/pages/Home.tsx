@@ -40,7 +40,7 @@ const Home = () => {
 			{isError && <p>Error al traer los datos</p>}
 
 			{!isLoading && !isError && (
-				<section className="mx-auto md:max-w-270 lg:max-w-370">
+				<section>
 					<section className="min-h-65 flex items-center justify-center bg-blue-950 text-white rounded-2xl mb-4 lg:mb-6">
 						<hgroup className="p-4 lg:p-10 text-center">
 							<h1 className="font-bold text-4xl mb-2">Personajes de Rick and Morty</h1>
@@ -77,7 +77,7 @@ const Home = () => {
 						</section>
 					</section>
 
-					<section className="flex flex-wrap items-center justify-center gap-4 lg:gap-6">
+					<section className="flex flex-wrap items-center gap-4 lg:gap-6">
 						{data?.results.map((dataUser: User) => (
 							<UserInfo key={dataUser.id} dataUser={dataUser} />
 						))}
