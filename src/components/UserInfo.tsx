@@ -1,5 +1,5 @@
 import type { User } from '../@types/user';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 type Props = {
 	dataUser: User;
@@ -7,16 +7,10 @@ type Props = {
 
 const UserInfo = ({ dataUser }: Props) => {
 	const { id, image, name, status, species, type, gender, origin, location } = dataUser;
-	const navigate = useNavigate();
-
-	function handleViewDetail() {
-		const url = `user/${id}`;
-		navigate(url);
-	}
 
 	return (
-		<button className="flex items-center w-full max-w-115 cursor-pointer border-2 border-transparent bg-gray-100 hover:bg-gray-200 hover:border-gray-900 focus:border-gray-900 focus-within:border-gray-900 active:scale-95 rounded-2xl transition-all duration-300 ease-in-out" onClick={handleViewDetail}>
-			<img src={image} className="max-w-53 rounded-l-2xl w-full h-full object-cover" width={200} height={200} alt={`Imagen de ${name} de ${origin}`} />
+		<Link to={`user/${id}`} className="flex flex-col sm:flex-row items-center w-full max-w-73.5 sm:max-w-115 cursor-pointer border-2 border-gray-200 bg-gray-100 hover:bg-gray-200 hover:border-gray-900 focus:border-gray-900 focus-within:border-gray-900 active:scale-95 rounded-2xl transition-all duration-300 ease-in-out overflow-hidden">
+			<img src={image} className="max-w-73.5 sm:max-w-53 rounded-2xl sm:rounded-l-2xl w-full h-full object-cover" width={200} height={200} alt={`Imagen de ${name} de ${origin}`} />
 			<div className="w-full p-4 min-h-50 text-start">
 				<div className="mb-4">
 					<h2 className="text-xl font-bold max-w-57">{name}</h2>
@@ -36,7 +30,7 @@ const UserInfo = ({ dataUser }: Props) => {
 					<p className="max-w-57">{location.name}</p>
 				</div>
 			</div>
-		</button>
+		</Link>
 	);
 };
 
