@@ -14,7 +14,7 @@ export const ListUsers = () => {
 
 			{isError && <MessageError error="Error al traer los datos, intenta nuevamente hacer la petición" reload={() => console.log('Reload')} />}
 
-			{!data && <MessageEmpty message="No se encontraron personajes" />}
+			{!data && !isLoading && !isError && <MessageEmpty message="No se encontraron personajes" />}
 
 			{data && (
 				<section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

@@ -18,7 +18,6 @@ export const Pagination = () => {
 	const handleFinalNextPage = () => {
 		if (next) {
 			const pageString = pages.toString();
-			console.log(pageString);
 			setPage(pageString);
 		}
 	};

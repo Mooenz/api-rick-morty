@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router';
 import { useUser } from '@/hooks/useUser';
 import ArrowLeft from '@/assets/ArrowLeft';
 import { clearUrl } from '@/utils/clearUrl';
+import MessageEmpty from '@/components/MessageEmpty';
+import MessageError from '@/components/MessageError';
 
 const DetailUser = () => {
 	const params = useParams();
@@ -16,9 +18,9 @@ const DetailUser = () => {
 	return (
 		<>
 			{isLoading && <p>Cargando...</p>}
-			{isError && <p>Error al cargar el usuario</p>}
-			
-			{!isLoading && !isError && userSelect && (
+			{isError && <MessageError error="Error al cargar el usuario" />}
+			{!userSelect && !isLoading && !isError && <MessageEmpty message="Usuario no encontrado" />}
+			{userSelect && (
 				<section className="flex flex-wrap gap-4 items-start">
 					<Link to="/" className="flex items-center gap-2 text-blue-500 hover:text-blue-700 transition-colors duration-300">
 						<ArrowLeft />
@@ -26,7 +28,7 @@ const DetailUser = () => {
 					</Link>
 
 					{userSelect ? (
-						<div className="w-full max-w-2xl mx-auto rounded-2xl border-2 pt-6 border-gray-200 bg-gray-100">
+						<div className="w-full max-w-2xl mx-auto rounded-2xl border-2 pt-6 border-gray-200 bg-white">
 							<section className="text-center">
 								<figure>
 									<img src={userSelect.image} alt={`Imagen de ${userSelect.name}`} className="w-30 h-30 md:w-40 md:h-40 lg:w-50 lg:h-50 rounded-full mb-4 object-cover mx-auto" />
@@ -76,7 +78,7 @@ const DetailUser = () => {
 								<p className="font-semibold text-gray-500 p-4">Episodes</p>
 								<ul className="flex flex-wrap justify-between gap-4 px-4">
 									{episodeIds.map((id, index) => (
-										<li key={id} className={index + 1  === lengthEpisodes ? "mr-auto" : ""}>
+										<li key={id} className={index + 1 === lengthEpisodes ? 'mr-auto' : ''}>
 											<Link to={`/episode/${id}`} className="flex-1 hover:flex-2 font-normal text-gray-600 hover:text-blue-500 transition-colors duration-300 ease-in-out">
 												Episode {id}
 											</Link>
