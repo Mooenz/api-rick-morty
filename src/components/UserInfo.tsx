@@ -14,12 +14,12 @@ const UserInfo = ({ dataUser }: Props) => {
 			<div className="w-full p-4 min-h-50 text-start">
 				<div className="mb-4">
 					<h2 className="text-xl font-bold max-w-57">{name}</h2>
-					<div className="flex font-medium gap-2">
-						<div>
+					<div className="">
+						<div className="inline-flex items-center">
 							<span className={`${status === 'Alive' ? 'bg-green-500' : status === 'Dead' ? 'bg-red-500' : 'bg-gray-500'} rounded-full w-2 h-2 inline-block mr-2`}></span>
 							{status === 'unknown' ? 'Alive?' : status}
-						</div>
-						-<span>{species} </span>-<span>{gender}</span>
+						</div>{' '}
+						- <span>{species} </span> - <span>{gender}</span>
 					</div>
 				</div>
 
