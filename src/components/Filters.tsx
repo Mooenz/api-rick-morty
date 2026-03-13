@@ -24,14 +24,14 @@ export const Filters = () => {
 
 		timeoutId.current = setTimeout(() => {
 			setFilterText(text);
-			setPage('0');
+			setPage('1');
 		}, 500);
 	};
 
 	const handleClearFilters = () => {
 		setFilterState('');
 		setFilterText('');
-		setPage('0');
+		setPage('1');
 		setTextInput('');
 	};
 	return (

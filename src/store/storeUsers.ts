@@ -19,7 +19,7 @@ type storeUsers = {
 
 export const useStoreUsers = create<storeUsers>((set) => ({
 	users: [],
-	page: '0',
+	page: '1',
 	filterState: '',
 	filterText: '',
 	count: 0,

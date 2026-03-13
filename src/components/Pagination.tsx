@@ -31,7 +31,7 @@ export const Pagination = () => {
 
 	const handleFinalPrevPage = () => {
 		if (prev) {
-			setPage('0');
+			setPage('1');
 		}
 	};
 
