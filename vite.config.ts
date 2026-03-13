@@ -4,8 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-	// base: '/api-rick-morty/',
-	base: '/',
+	base: '/api-rick-morty/',
 	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
